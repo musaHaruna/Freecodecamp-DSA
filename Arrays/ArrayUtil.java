@@ -11,7 +11,19 @@ public class ArrayUtil {
       System.out.println();
    }
 
-  
+   public static int findSecondMax(int[]arr) { 
+      int max = Integer.MIN_VALUE;
+      int secondMax = Integer.MIN_VALUE;
+      for (int i = 0; i < arr.length; i++) {
+         if(arr[i] > max) {
+            secondMax = max;
+            max = arr[i];
+         } else if (arr[i] > secondMax && arr[i]!= max) {
+            secondMax = arr[i];
+         }
+      }
+   return secondMax;
+   }
 
    public static void reverse(int[] numbers, int start, int end) {
       while (start <= end) {
@@ -59,7 +71,9 @@ return min;
       printArray(result);
       reverse(arr, 0, arr.length - 1);
       int minimun = findMinimum(arr);
-       System.out.println(minimun);
+      int secondMax = findSecondMax(arr);
+      System.out.println(minimun);
+      System.out.println(secondMax);
     
       
    }
