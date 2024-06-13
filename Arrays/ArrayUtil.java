@@ -36,7 +36,7 @@ public class ArrayUtil {
    }
 
 
-public static int findMinimum(int[] numbers) {
+   public static int findMinimum(int[] numbers) {
    int min = numbers[0];
     for (int i = 0; i < numbers.length; i++) {
       if (numbers[i] < min) {
@@ -64,16 +64,25 @@ return min;
     return result;
    }
 
+   public static void moveZeros(int[] arr, int n) {
+      int j = 0;
+      for (int i = 0; i < n; i++) {
+         if (arr[i]!= 0 && arr[j]== 0) {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+         } 
+         if(arr[j] != 0) {
+            j++;
+         }
+      }
+
+   }
    public static void main(String[] args) {
-      int[] arr = {1, 3, 6, 8, 2, 4,7}; 
-      printArray(new int[] {1, 3, 6, 8, 2, 4,7});
-      int [] result = removeEven(arr);
-      printArray(result);
-      reverse(arr, 0, arr.length - 1);
-      int minimun = findMinimum(arr);
-      int secondMax = findSecondMax(arr);
-      System.out.println(minimun);
-      System.out.println(secondMax);
+      int[] arr = {1, 3, 0, 6, 0, 8, 0,  2, 4,7}; 
+      moveZeros(arr, arr.length);
+      printArray(arr);
+  
     
       
    }
